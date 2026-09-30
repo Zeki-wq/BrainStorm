@@ -1,0 +1,2 @@
+.quick-sort-conveyor.sort-reject{animation:reject-flash .3s ease-out}.quick-sort-conveyor.sort-accept{animation:accept-flash .3s ease-out}
+@keyframes reject-flash{50%{border-color:#ed6c7c;background:#4b2027}}@keyframes accept-flash{50%{border-color:#70d79d;background:#203e2d}}

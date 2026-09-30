@@ -1,0 +1,75 @@
+/* Final intro overrides: stop the old 2.28s fade timer and fire a second arc pass over the forming wordmark. */
+.brainstorm-intro {
+  animation: none !important;
+}
+
+.brainstorm-intro[data-stage="3"] .intro-seq-bolt {
+  animation: intro-seq-arc 0.42s ease-in-out both;
+}
+.brainstorm-intro[data-stage="3"] .bolt-right { animation-delay: 0.05s; }
+.brainstorm-intro[data-stage="3"] .bolt-top { animation-delay: 0.1s; }
+.brainstorm-intro[data-stage="3"] .bolt-bottom { animation-delay: 0.15s; }
+.brainstorm-intro[data-stage="3"] .bolt-cross { animation-delay: 0.2s; }
+.brainstorm-intro[data-stage="3"] .bolt-cross-two { animation-delay: 0.25s; }
+
+/* Stage 5 is the completed intro state. It waits for an explicit user entry. */
+.brainstorm-intro[data-stage="5"] {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
+.brainstorm-intro[data-stage="5"] .intro-seq-flash {
+  animation: none;
+}
+
+.intro-enter-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.intro-seq-enter {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: calc(50% + clamp(122px, 19vw, 158px));
+  margin: 0;
+  color: #c8e69a;
+  font: 600 11px/1 'DM Mono', monospace;
+  letter-spacing: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+}
+
+.intro-enter-mark { color: #8db959; }
+
+.intro-enter-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  animation: intro-seq-enter-pulse .8s ease-in-out infinite alternate;
+}
+
+.brainstorm-intro[data-stage="5"] .intro-seq-enter {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.brainstorm-intro[data-stage="6"] .intro-seq-flash {
+  animation: intro-seq-flash .35s ease-out both;
+}
+
+.brainstorm-intro[data-stage="6"] {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .38s ease .06s, visibility .38s ease .44s;
+}
+
+@keyframes intro-seq-enter-pulse {
+  to { opacity: .35; transform: translateY(2px); }
+}
